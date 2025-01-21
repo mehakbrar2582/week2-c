@@ -1,15 +1,12 @@
 #include <stdio.h>
 
-// Define constants (if necessary)
-// Example: #define PI 3.14159265358979323846
-
 // Function declarations
 void greet(void);                    // Student 1
 int add(int a, int b);               // Student 2
 int subtract(int a, int b);          // Student 3
 double calculateArea(double radius); // Student 4
 unsigned long long factorial(int n); // Student 5
-void displayMenu(void);             // Student 6
+void displayMenu(void);              // Student 6
 
 int main(void) {
     // Variable declarations
@@ -32,7 +29,7 @@ int main(void) {
     // Use a switch-case to handle menu options
     switch (choice) {
     case 1:
-        greet(); // Call greet function
+        greet();
         break;
     case 2:
         // Call add function (placeholder)
@@ -58,9 +55,9 @@ int main(void) {
 
 // Student 1: Implement greet() function
 void greet(void) {
-    // Placeholder
+    char name[50];
+    printf("Good afternoon to everyone");
 }
-
 // Student 2: Modify add() function to take user input
 int add(int a, int b) {
     // Placeholder
