@@ -1,4 +1,7 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
 
 // Function declarations
 void greet(void);                    // Student 1
@@ -22,8 +25,8 @@ int main(void) {
     // Accept user input for menu selection
     printf("\nEnter your choice: ");
     if (fgets(input, sizeof(input), stdin) != NULL) {
-        // Parse the input (placeholder)
-        // Example: sscanf_s(input, "%d", &choice);
+        // Parse the input
+        sscanf(input, "%d", &choice);
     }
 
     // Use a switch-case to handle menu options
@@ -31,18 +34,42 @@ int main(void) {
     case 1:
         greet();
         break;
-    case 2:
-        // Call add function (placeholder)
+    case 2: {
+        int a, b;
+        printf("Enter two numbers to add: ");
+        if (fgets(input, sizeof(input), stdin) != NULL) {
+            sscanf(input, "%d %d", &a, &b);
+            printf("Result: %d\n", add(a, b));
+        }
         break;
-    case 3:
-        // Call subtract function (placeholder)
+    }
+    case 3: {
+        int a, b;
+        printf("Enter two numbers to subtract: ");
+        if (fgets(input, sizeof(input), stdin) != NULL) {
+            sscanf(input, "%d %d", &a, &b);
+            printf("Result: %d\n", subtract(a, b));
+        }
         break;
-    case 4:
-        // Call calculate_area function (placeholder)
+    }
+    case 4: {
+        double radius;
+        printf("Enter the radius of the circle: ");
+        if (fgets(input, sizeof(input), stdin) != NULL) {
+            sscanf(input, "%lf", &radius);
+            printf("Area: %.2lf\n", calculateArea(radius));
+        }
         break;
-    case 5:
-        // Call factorial function (placeholder)
+    }
+    case 5: {
+        int n;
+        printf("Enter a number to calculate its factorial: ");
+        if (fgets(input, sizeof(input), stdin) != NULL) {
+            sscanf(input, "%d", &n);
+            printf("Factorial: %llu\n", factorial(n));
+        }
         break;
+    }
     default:
         printf("Invalid choice. Please try again.\n");
         break;
@@ -51,40 +78,48 @@ int main(void) {
     return 0;
 }
 
-// Function definitions (placeholders)
-
 // Student 1: Implement greet() function
 void greet(void) {
     char name[50];
-    printf("Good afternoon to everyone");
+    printf("Please enter your name: ");
+    if (fgets(name, sizeof(name), stdin) != NULL) {
+        // Remove newline character from the input
+        name[strcspn(name, "\n")] = '\0';
+        printf("Hello, %s! Welcome to the Collaborative Code Management Program!\n", name);
+    }
+    else {
+        printf("Hello! Welcome to the Collaborative Code Management Program!\n");
+    }
 }
+
 // Student 2: Modify add() function to take user input
 int add(int a, int b) {
-    // Placeholder
-    return 0; // Replace with actual logic
+    return a + b;
 }
 
 // Student 3: Complete subtract() function
 int subtract(int a, int b) {
-    // Placeholder
-    return 0; // Replace with actual logic
+    return a - b;
 }
 
-// Student 4: Implement calculate_area() function
+// Student 4: Implement calculateArea() function
 double calculateArea(double radius) {
-    // Placeholder
-    return 0.0; // Replace with actual logic
+    return radius * radius * 3.14159; // Assuming you want to calculate the area of a circle
 }
+
 
 // Student 5: Develop factorial() function
 unsigned long long factorial(int n) {
-    // Placeholder
-    return 0; // Replace with actual logic
+    if (n == 0) {
+        return 1;
+    }
+    else {
+        return n * factorial(n - 1);
+    }
 }
 
-// Student 6: Implement display_menu() function
+// Student 6: Implement displayMenu() function
 void displayMenu(void) {
-    // Placeholder
     printf("Menu:\n");
     printf("1. Greet\n");
     printf("2. Add two numbers\n");
